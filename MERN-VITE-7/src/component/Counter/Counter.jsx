@@ -9,18 +9,20 @@ const Counter = () => {
     //In  useState() can use Int,Boolean,String,Array,Object
 
 
-    let [val, SetValues] = useState(0)
+    let [val, SetValues] = useState({ name: "Hello", hobby: "Reading" })
 
     return (
         <>
             <p>Counter</p>
 
-            <p>{val}</p>
+            {/* <p>{val}</p> */}
 
             <button className="bg-blue-400 p-2 rounded-md" onClick={() => {
                 //value = value+1  -------> We not use this type
-                SetValues(val + 1)
-                console.log("--->", val)
+                SetValues((itmes) => ({
+                    ...itmes, hobby: "studying"
+                }));
+                console.log("------>",val)
             }}>Add</button>
 
         </>
